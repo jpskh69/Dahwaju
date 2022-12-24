@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" 
+    integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://kit.fontawesome.com/04df4da1bd.js" crossorigin="anonymous"></script>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <main class="payMent-main flexd">
+        <div class="payMent__contents1">
+            <section class="pay-productInfo">
+                <!-- 상품 정보 -->
+                <h3 class="productInfo__title flexd">주문 상품   
+                    <div>
+                        <div class="product-cnt">
+                            총 <span>0</span> 건
+                        </div>
+                        <div class="foldBnt" onclick="listshow()">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                    </div>
+                </h3>
+                <ul class="productInfo">
+                    <li>
+                        <!--이 li부분은 동적으로 추가되어야하는 부분-->
+                        <div class="product-item flexd">
+                            <div class="productInfo__img"><!-- 상품의 이미지 //figure 태그  --></div>
+                            <div class="productInfo__contents flexd">  
+                                <p class="name"><!-- 상품의 이름 -->
+                                    <span class="bolds">[계절한정]</span> 홍화 주(酎)
+                                </p>
+                                <p class="piceCount"><!-- 상품의 가격 -->
+                                    <span>1</span> 개 / 
+                                    <span>23,000</span> 원 
+                                </p>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <!--이 li부분은 동적으로 추가되어야하는 부분-->
+                        <div class="product-item flexd">
+                            <div class="productInfo__img"><!-- 상품의 이미지 //figure 태그  --></div>
+                            <div class="productInfo__contents flexd">  
+                                <p class="name"><!-- 상품의 이름 -->
+                                    <span class="bolds">[계절한정]</span> 백몽 주(酎)
+                                </p>
+                                <p class="piceCount"><!-- 상품의 가격 -->
+                                    <span>1</span> 개 / 
+                                    <span>23,000</span> 원 
+                                </p>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="pay-orderCustomer">
+                <h3 class="orderInof__ItemTitle">주문고객정보</h3>
+                <table>
+                    <tr>
+                        <td class="item__name">이름</td>
+                        <td><input type="text" class="nemaInput"/></td>
+                    </tr>
+                    <tr>
+                        <td class="item__name">이메일</td>
+                        <td>
+                            <input type="text" class="email-front"/> @ <input type="text" class="email-back"/>
+                            <select class="email-back2" onchange="emails()">
+                                <option value="">직접입력</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="hanmail.net">hanmail.net</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item__name">휴대전화</td>
+                        <td>
+                            <select class="phone-Fn" >
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                            </select>
+                            - <input type="text" class="phone-Bn" placeholder="'-'제외하고 입력해주세요." maxlength="8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item__name">보내는분</td>
+                        <td><input type="text" class="nemaInput"/></td>
+                    </tr>
+                </table>
+            </section>
+            <section class="pay-deliveryInfo">
+                <div class="deli-contents flexd">
+                    <h3 class="orderInof__ItemTitle">배송정보</h3>
+                    <button type="button" onclick="sameCustomer()">주문고객과 동일</button>
+                </div>
+                <table>
+                    <tr>
+                        <td class="item__name">받는 분</td>
+                        <td><input type="text" class="nemaInput"/></td>
+                    </tr>
+                    <tr>
+                        <td class="item__name">연락처</td>
+                        <td>
+                            <select class="phone-Fn">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                            </select>
+                            - <input type="text" class="phone-Bn"placeholder="'-'제외하고 입력해주세요." maxlength="8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item__name">주소</td>
+                        <td>
+                            <div>
+                                <input type="text" id="sample6_postcode" placeholder="우편번호" readonly/>
+                                <button type="button" onclick="sample6_execDaumPostcode()" class="address-btn"><!-- API -->우편번호찾기</button>
+
+                            </div>
+                            <input type="text" id="sample6_address" placeholder="주소" class="deliInput"/>
+                            <input type="text" id="sample6_detailAddress" placeholder="상세주소" class="deliInput"/>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item__name">배송시<br> 요청사항</td>
+                        <td><input type="text" class="deliInput"/></td>
+                    </tr>
+                </table>
+
+                
+            </section>
+            <section class="pay-payType">
+                <h3 class="orderInof__ItemTitle">결제 수단 선택</h3>
+                <ul class="payType-list flexd">
+                    <li>
+                        <div class="box"  ><input type="radio" id="select1" name="paySelect" value="Card"/><label for="select1" onclick="boxClicked(this)">신용카드</label></div>
+                    </li>
+                    <li>
+                        <div class="box"><input type="radio" id="select2" name="paySelect" value="NaverPay"/><label for="select2" onclick="boxClicked(this)">네이버페이</label></div>
+                    </li>
+                    <li>
+                        <div class="box"><input type="radio" id="select3" name="paySelect" value="DirectBank"/><label for="select3" onclick="boxClicked(this)">계좌이체</label></div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="payMent__contents2">
+          <div class="pay-PriceInfo">
+            <ul class="price__list">
+                <li>
+                    <div class="price__item flexd">
+                        <p class="bolds">총 상품 금액</p>
+                        <p>+ <span>46000</span> 원</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="price__item flexd">
+                        <p class="bolds">할인금액</p>
+                        <p class="textred">- <span>0</span> 원</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="price__item flexd">
+                        <p class="bolds">배송비</p>
+                        <p>+ <span>0</span> 원</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="price__exected flexd">
+                <p >최종결제금액</p>
+                <p><span>46000</span>원</p>
+            </div>
+            <button onclick="dataSet()">결제하기</button>
+          </div>
+        </div>
+    </main>
+    
+    <!--  스크립트부분    -->
+    <script src="/js/payMnet.js"></script>
+</body>
+</html>
