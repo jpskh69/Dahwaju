@@ -1,0 +1,256 @@
+
+.bolds{
+    font-weight: bold;
+}
+.payMent-main{
+    width: 1000px;
+   /*padding-right: 400px;*/
+    box-sizing: border-box;
+    margin: 20px auto;
+    justify-content: center;
+}
+.payMent__contents2{
+    padding-left: 40px;
+    position: relative;
+}
+.payMent-main ul{
+    list-style: none;
+
+}
+
+/* 결제 상품 부분------------------------------------------------------------------ */
+
+.pay-productInfo{
+    margin: 20px auto;
+    border-bottom: 1px dashed rgb(180, 180, 180);
+    padding: 10px 0px;
+}
+.productInfo__title{
+    justify-content: space-between;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    padding: 20px 15px 20px 35px;
+    margin-bottom: 25px;
+    
+}
+.productInfo__title >div{
+    width: 90px;
+    padding: 0px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.productInfo__title .foldBnt{
+    box-sizing: border-box;
+    padding: 0px 15px;
+    cursor: pointer;
+}
+.product-cnt {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.productInfo__title .fa-angle-down{
+    color: rgb(190, 190, 190)
+}
+.product-item{
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.productInfo__img {
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 70px;
+    height: 65px;
+    background-color: ghostwhite;
+    box-shadow: -5px 5px 12px rgba(0, 0, 0, 0.3);
+    margin: 5px 20px 5px 35px;
+    
+}
+.productInfo__contents {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 13px;
+}
+.productInfo__contents .name span {
+    padding-right: 10px;
+}
+.productInfo__contents .piceCount {
+    padding-right: 35px;
+}
+
+
+
+/* 주문자, 배송지 입력 부분 -------------------------------------------------------- */
+.pay-orderCustomer{
+    margin: 0px auto;
+    padding-bottom: 20px;
+}
+
+/*------------------------------------------------------------------*/
+.orderInof__ItemTitle{
+    padding: 10px 10px 20px 40px;
+}
+
+.payMent__contents1 table {
+    width: 100%;
+    padding: 10px 0px 10px 25px;
+}
+
+.payMent__contents1 table td{
+    height: 50px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-right: 10px;
+    font-size: 13px;
+}
+.payMent__contents1  table input, 
+.payMent__contents1  table select{
+    padding: 10px 10px 8px 10px;
+    margin-bottom: 10px;
+    outline-style: none;
+    border: 0.5px solid rgb(180, 180, 180);
+}
+.payMent__contents1 table input{
+    height:30px;
+}
+/*------------------------------------------------------------------*/
+
+.item__name{
+    width: 70px;
+}
+.nemaInput, .deliInput {
+    width: 95%;
+    
+}
+
+.phone-Fn{
+    width: 80px;
+}
+
+.email-front,
+.email-back{
+    width: 30%;
+}
+.email-back2{
+    width: 25%;
+}
+.phone-Bn {
+    width: 75.5%;
+}
+.phone-Fn,.email-back2 {
+    height:50px;
+}
+
+.deli-contents {
+    justify-content: space-between;
+}
+
+.deli-contents button,
+.address-btn {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 12px;
+    height: 40px;
+    margin-right: 14px;
+    background-color: white;
+    border: 0.5px solid rgba(190, 190, 190, 0.5);
+    color: gray;
+    border-radius: 20px;
+}
+.pay-deliveryInfo {
+    border-bottom: 1px dashed rgb(180, 180, 180);
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+}
+
+.address-btn {
+    margin-left: 10px;
+    padding: 0px 20px;
+}
+
+/*결제 수단 선택 부분 ---------------------------------------------------------*/
+.payType-list {
+    padding: 25px 25px 80px 35px;
+    border-bottom:  0.5px solid rgba(0, 0, 0, 0.5);
+    
+}
+.box{
+    padding: 10px;
+    border: 1px solid  rgba(190, 190, 190, 0.5);
+    box-sizing: border-box;
+    width: 180px;
+    height: 70px;
+    line-height: 45px;
+    text-align: center;
+    cursor: pointer;    
+
+}
+
+.box input[type='radio']{
+    display: none;
+}
+.box input[type='radio']+label{
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    
+}
+
+.checked-on{
+    border:  2px solid black; /*체크 될시에만 적용*/
+    font-weight: 600;
+    color: black;
+}
+
+/*결제 박스 부분 -------------------------------------------------------------------*/
+.pay-PriceInfo{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 20px 20px 0px 20px;
+    width: 300px;
+    position: sticky;
+    top: 110px;
+    border-radius: 20px;
+
+}
+
+
+.price__item {
+    font-size: 14px;
+    width: 300px;
+    justify-content: space-between;
+    padding-bottom: 8px;
+
+}
+
+.textred {
+    color: red;
+    font-weight: normal;
+}
+.price__exected{
+    justify-content: space-between;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bolder;
+    padding: 15px 0px;
+    border-top:  0.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.payMent__contents2 button{
+    width: 342px;
+    height: 50px;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border-top: none;
+    border-radius: 0px 0px 20px 20px;
+    background-color: rgb(241, 144, 144);
+    position: relative;
+    right: 21px;
+    top: 2px;
+
+}

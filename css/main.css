@@ -1,0 +1,15 @@
+@import "/css/header.css";
+@import "/css/payMent.css";
+@import "/css/basket.css";
+
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    height: 1000vh;
+
+}

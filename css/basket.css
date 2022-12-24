@@ -1,0 +1,305 @@
+.basketMain{ 
+    width: 1000px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    justify-content: center;
+}
+.buy-subscrip{
+    display: none;
+}
+/*---------------------------------------------------------------------------------------*/
+.basketMain ul{
+    list-style: none;
+}
+
+.basket-contents,
+ .adv{
+    /*border: 1px solid black;*/
+    padding: 10px;
+    margin: 20px auto;
+    width: 700px;
+}
+
+.basket-contents>h1{
+    padding: 20px 30px;
+    margin: 30px 0px;
+
+}
+
+.basket-contents  .buyType__bnt p{
+    width: 50%;
+    padding: 15px;
+    text-align: center;
+    border-top: 0.5px solid gainsboro;
+    border-bottom: 0.5px solid gainsboro;
+    font-size: 13px;
+    cursor: pointer;
+
+}
+.basket-contents .buyType__bnt .clickedBk {
+    border-bottom: 2px solid black;
+    color: black;
+    font-weight: 600;
+}
+/* 전체 선택/삭제 부분---------------------------------------------------------------*/
+.seletBox {
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 13px;
+    
+}
+.seletBox>div{
+    align-items: center;
+}
+.allcheck{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    
+
+}
+
+.delet{
+    border: none;
+    border-left: 0.5px solid gray;
+    padding-left: 15px;
+    background-color: white;
+    cursor: pointer;
+
+}
+
+/* 장바구니 내용 부분---------------------------------------------------------------*/
+
+.buy-normal, .buy-subscrip {
+    padding: 10px;
+    border-top: 2px  solid black;
+
+}
+.buyList li {
+    margin-bottom: 5px;
+}
+/*==============================================================================*/
+/*장바구니에 아무것도 담겨져있지 않을경우 */
+.buyList__no {
+    display: block; /* display: block; */
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+.buyList__no>p {
+    font-size: 15px;
+    color:  rgba(128, 128, 128, 0.7);
+    font-weight: 600;
+}
+.buyList__no>p i {
+    padding-left: 10px;
+    font-size: 24px;
+    color: rgba(128, 128, 128, 0.7);
+}
+/*==============================================================================*/
+
+/* 한 개에 대한 CSS */
+.buyList__content {
+    width: 100%;
+    box-sizing: content-box;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    border-bottom: 1px dashed rgba(0,0,0,0.2);
+
+}
+.content-item {
+    width: 33%;
+    display: flex;
+    align-items: center;
+}
+.content-item:nth-of-type(2){
+    justify-content: center;
+}
+.content-item:last-child{
+    justify-content: end;
+    padding-right: 30px;
+    box-sizing: border-box ;
+}
+
+    /* 한 상품의 선택, 이미지, 제목 */
+.itemCheck { 
+    margin: 0px 15px;
+    width:20px;
+    height:20px;
+}
+.item-img {
+    border: 1px solid rgba(0, 0, 0, 0.21);
+    border-radius: 10px;
+    width: 60px;
+    height: 70px;
+    box-shadow: -2px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.item-titel {
+    font-size: 12px;
+    padding-left: 15px;
+}
+
+    /*한 상품에대한 수량 버튼*/
+.item__countBnt {
+    width: 90px;
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
+       /*  css   */
+
+ 
+    
+}
+
+.item__countBnt input {
+    border: none;
+    width: 33%;
+    height: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(86, 86, 86);
+    background-color: rgba(220, 220, 220, 0.8);
+    /*CSS*/
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+
+    border: 1px solid rgba(0,0,0,0.1);
+    border-right: none;
+    border-bottom: 4px solid rgba(0,0,0,0.21);
+    border-radius: 4px 0px 0px 4px;
+}
+.item__countBnt input:last-child{
+    border: 1px solid rgba(0,0,0,0.1);
+    border-left: none;
+    border-bottom: 4px solid rgba(0,0,0,0.21);
+    border-radius: 0px 4px 4px 0px;
+    
+}
+
+
+.item__countBnt input:active{
+    background-color: rgb(200, 200, 200);
+}
+
+
+.amount {
+    display: inline-block;
+    width: 34%;
+    height: 100%;
+    padding-top: 3px;
+    padding-right: 6px;
+    box-sizing: border-box;
+    text-align: right;
+    background-color:white;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 4px solid rgba(0,0,0,0.21);
+
+}
+.item-price__hidden {
+    display: none;
+}
+
+/*구매 버튼--------------------------------------------------------------------*/
+.decision__bnt{
+    border-bottom: 2px solid black;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+.decision__bnt input {
+    width: 120px;
+    height: 40px;
+    font-weight: bold;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 4px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+
+}
+.decision__bnt input:last-child {
+    background-color: #fec1c1;
+
+}
+.decision__bnt input:active  {
+    background-color: #ff9898;
+}
+.decision__bnt input:last-child:active {
+    background-color: #ff9898;
+
+}
+
+
+/*광고 세일 부분===================================================*/
+.adv{
+    margin-top: 100px;
+}
+.adv__title {
+    padding: 20px 30px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+}
+.adv__title > div {
+    display: flex;
+    align-items: center;
+}
+.adv__title > div p{
+    margin-left: 50px;
+    font-size: 14px;
+}
+.adv__content{
+    padding: 20px 10px;
+
+    border-top: 2px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+.adv__img {
+    width:  30%;
+    height: 200px;
+    background-color: #fec1c1;
+    position: relative;
+}
+.adv__img span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height : 50px;
+    border-radius: 100%;
+    background-color: rgb(255, 99, 99);
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.adv__content div:last-child{
+    padding-left: 30px;
+}
+
+.product__name {
+    font-weight: bolder;
+}
+.product__originPrice{
+    color: gray;
+    font-size: 11px;
+    text-decoration:line-through;
+    margin-top: 10px;
+    margin-left: 5px;
+
+}
+
+#clock {
+    font-size: 24px;
+    font-weight: bold;
+}
+.basketMain .pay-PriceInfo {
+    top: 180px;
+    margin-bottom: 30px;
+}

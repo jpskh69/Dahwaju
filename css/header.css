@@ -1,0 +1,155 @@
+
+/*--------------------------------------------------------*/
+header{
+    width: 100%;
+    /*body 때문에 뭔가 확대하면 짤려보임 나중에 body 너비 조정 필요 */
+    background: linear-gradient( to bottom, rgba( 0, 0, 0, .25), transparent );
+    transition: background  0.25s ease-in-out;
+    /* background: transparent;  => 배경 투명하게 만드는 속성*/
+    position: fixed;
+}
+
+
+.header__box,
+.header-content,
+.header-content__logo {
+   /* border: 1px solid black;*/
+    padding: 10px;
+}
+.flexd{
+    display: flex;
+}
+
+.header__box {
+    max-width: 1540px;
+    min-width: 1100px;
+    height: 80px;
+    margin: 0px auto;
+    justify-content: space-between;
+}
+.header-content a{
+    text-decoration: none;
+    color:white;
+    transition: color  0.25s ease-in-out;
+}   
+.header-content ul{
+    list-style: none;
+}
+.header-content li{
+    padding-left: 15px;
+}
+.header-content{
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 60px;
+}
+.header-content:first-child{
+    width: 820px;
+}
+.header-content__logo {
+    width: 150px;
+    height: 60%;
+    /*background-color: black;*/
+    background-image: url(/image/name_w.png);
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    vertical-align: top;
+    transition: background-image  0.3s ease-in-out;
+}
+
+
+.header-content__nav{
+    padding-left: 150px;
+}
+.header-content__nav li{
+    padding-right: 100px;
+}
+.header-content__item{
+    width: 250px;
+}
+.header-content__item li{
+    padding-right: 15px;
+}
+
+.icon-color {
+    color: white;
+    transition: color 0.25s ease-in-out;
+}
+
+@media (hover: hover){
+
+    header:hover{
+        background: white;
+
+    }
+
+    header:hover .header-content__logo{
+        background-image: url(/image/name_b.png);
+
+    }
+    header:hover .header-content a,
+    header:hover .icon-color {
+
+        color: black;
+        transition: color 0.25s ease-in-out ;
+    }
+    
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+
+.scrollLog{
+    background-image: url(/image/name_b.png);
+}
+.scrollCol {
+    background: local;
+    transition: background  0.25s ease-in-out;
+
+}
+.scrollCol a,
+.scrollCol .icon-color{
+    color: black;
+}
+
+/*----------------------------------------------------------------------------*/
+
+
+.header-content__nav li:hover .color-hover,
+.header-content__item .color-hover:hover,
+.header-content__item .icon-color:hover{
+    color: #ffadad;
+
+}
+
+
+.header-content__item li{
+    position: relative;
+}
+.header-content__item .longin-submenu,
+.header-content__item .shopping-submenu{
+    position: absolute;
+    right: -13px;
+    
+}
+.header-content__item .shopping-submenu{
+    right: -32px;
+}
+
+
+.header-content__item .longin-submenu li,
+.header-content__item .shopping-submenu li{
+    display: none;
+    background-color: white;
+    width: 80px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.header-content__item li:nth-child(3):hover  .longin-submenu li,
+.header-content__item li:nth-child(2):hover  .shopping-submenu li  {
+    display: block;
+}
+
