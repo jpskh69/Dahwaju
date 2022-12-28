@@ -62,3 +62,17 @@ function colorSwitchRe(){
 }
 
 
+// 팝업창 열기
+function popup(){
+  let popup = document.querySelector(".popup");
+  popup.style.display ="block";
+
+}
+
+//팝업창 닫기
+
+function popupClose(){
+  let popup = document.querySelector(".popup");
+  popup.style.display ="none";
+}
+//검색 내역 

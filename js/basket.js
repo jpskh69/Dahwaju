@@ -117,7 +117,7 @@ function allChecked(allcheck){
         }
 
     }
-    /*
+    
     //===============================================================================
     let subscripBkSel= parents.querySelector(".subscrip-bk__sel");
     //alert(subscripBkSel.classList.length);
@@ -133,16 +133,9 @@ function allChecked(allcheck){
         }
 
     }
-    */
+    
 }
 
-
-
-//
-function checked(){
-
-}
-checked();
 
 
 
@@ -174,6 +167,7 @@ function selectDelet(){
     for(let i=0; i< checkBoxs.length;i++){
         if(checkBoxs[i].checked){
             let itemList =  checkBoxs[i].parentNode.parentNode; //li선택
+            alert(checkBoxs[i].value);
             itemList.remove();  //li 삭제
           
         }
@@ -204,6 +198,38 @@ function selectDelet(){
 
 
 
+}
+//
+function action2( a ){
+    //alert("dqdq");
+    let allcheck = document.querySelector(".allcheck");
+   // alert(allcheck);
+    
+
+    if( a == 1){
+        let buyNormal = document.querySelector(".buy-normal");
+       // alert(buyNormal);
+        let checkBoxs1 = buyNormal.querySelectorAll('input[type="checkbox"]');
+        //alert(checkBoxs1[0]);
+
+
+        allcheck.checked =true;
+        for(let i=0; i < checkBoxs1.length;i++){
+            checkBoxs1[i].checked = true;
+        }
+    }
+    if( a == 2){
+        let buySubscrip = document.querySelector(".buy-subscrip");
+        let checkBoxs2 = buySubscrip.querySelectorAll('input[type="checkbox"]');
+        
+
+        allcheck.checked =true;
+        for(let i=0; i < checkBoxs1.length;i++){
+            checkBoxs1[i].checked = true;
+        }
+    }
+
+    
 }
 
 
@@ -301,6 +327,10 @@ function conutPuls(apple) {
     //alert(hiddenPrice);
     let price = Number(hiddenPrice.innerHTML);
     //alert(price);
+    let hiddenCount  = parent.querySelector(".item-price__hidden");
+    //alert(hiddenPrice);
+    let pCount = Number(hiddenCount.value);
+    //alert(price);
     //====================================================================================
     let parents = apple.parentElement.parentElement.parentElement;
     //alert(parents);
@@ -310,6 +340,7 @@ function conutPuls(apple) {
     count++;
     span.innerHTML = count;
     //alert(count);
+    pCount =  count; 
     let sum = price *count ;
     //alert(sum);
 
