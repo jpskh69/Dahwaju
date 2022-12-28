@@ -198,7 +198,8 @@
     border-bottom: 4px solid rgba(0,0,0,0.21);
 
 }
-.item-price__hidden {
+.item-price__hidden,
+.item-count__hidden {
     display: none;
 }
 
