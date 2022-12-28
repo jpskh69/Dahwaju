@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/04df4da1bd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/main.css">
-    <title>Document</title>
+    <title>basket</title>
 </head>
 <body>
     <main class="basketMain flexd">
@@ -52,6 +52,7 @@
                                         <input type="button" value="+" onclick="conutPuls(this)">
                                         <span class="item-price__hidden">20000</span>
                                         <span class="amount">1</span>
+                                        <input type="text" class="item-count__hidden" value="1">
                                         <input type="button" value="-" onclick="conutMious(this)">
                                     </div>
                                 </div>
@@ -117,6 +118,7 @@
                                         <input type="button" value="+" onclick="conutPuls(this)">
                                         <span class="item-price__hidden">20000</span>
                                         <span class="amount">1</span>
+                                        
                                         <input type="button" value="-" onclick="conutMious(this)">
                                     </div>
                                 </div>
@@ -147,6 +149,7 @@
                                         <span class="amount">1</span>
                                         <input type="button" value="-" onclick="conutMious(this)"/>
                                     </div>
+                                    
                                 </div>
                                 <div class="content-item">
                                     <p><span class="item-price">20000</span> 원</p>
@@ -158,7 +161,7 @@
             
                 <div class="decision__bnt">
                     <!--버튼  2개 선택구매 전체 구매 -->
-                    <input type="button" class="" value="선택구매 하기">
+                    <input type="button" class="" value="선택구매 하기" onclick="action2(1)">
                     <input type="button" class="" value="전체구매 하기">
                     
                 </div>

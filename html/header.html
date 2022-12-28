@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" 
     integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://kit.fontawesome.com/04df4da1bd.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -25,7 +26,7 @@
             </div>
             <div class="header-content" >
                 <ul class="header-content__item flexd ">
-                    <li><a href="#"><i class="fa-solid fa-magnifying-glass fa-lg icon-color "></i></a></li>
+                    <li><a href="#popup"onclick="popup()"><i class="fa-solid fa-magnifying-glass fa-lg icon-color "></i></a></li>
                     <li><a href="#"><i class="fa-solid fa-cart-shopping fa-lg icon-color "></i></a>
                         <ul class="shopping-submenu">
                             <li><a href="#" class="color-hover" >장바구니</a></li>
@@ -44,6 +45,42 @@
             </div>
         </div>
     </header>
+
+
+
+    <!-- 검색창 팝엄 --> 
+    <div class="popup">
+        <div id="search"class="search-box ">
+            <div class="search-box__icon" onclick="popupClose()"><i class="fa-solid fa-xmark fa-3x"></i></div>
+            <div class="search">
+                <div class="search__bar">
+                    <input type="text" />
+                    <div class="bar__icon">
+                        <!-- 취소 아이콘-->
+
+                        <i class="fa-regular fa-circle-xmark fa-2x"></i>
+                        <!-- 서치 아이콘 -->
+                        <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                       
+    
+                    </div>
+                  
+                </div>
+                <div class="search__content">
+                    <div class="content__none"> 어떤 제품을 찾으시나용?</div>
+                    <div class="content_on">
+                        <ul class="content__list">
+                            <li><a href="#">달빛 걷기</a></li>
+                            <li><a href="#">달빛 뛰기</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
 
     <script src="../js/header.js"></script>
 
