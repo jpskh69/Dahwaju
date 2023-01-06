@@ -4,169 +4,182 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/04df4da1bd.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/main.css">
-    <title>basket</title>
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
 </head>
 <body>
+
     <main class="basketMain flexd">
-        <div>
-            <section class="basket-contents">
+        <!-- 페이지 내용-->
+        <div class="basket__Box1">
+            <!-- 실제 장바구니 -->
+            <section class="basket__contents">
+                <!-- 메뉴 타이틀 -->
                 <h1>장바구니</h1>
-                <div class="buyType__bnt flexd"> 
-                    <!--일반 구매 / 정기구매 -->
-                    <p class="normal-bk__sel " onclick=" normalBk(this)" value="1">일반 구매( <span class="count">0</span> )</p>
-                    <p class="subscrip-bk__sel" onclick=" subcripBk(this)">정기 구매( <span class="count">0</span> )</p>
+                <div class="basketType flexd"> 
+                    <!--장바구니 유형 선택   일반 / 정기 -->
+                    <p id="sel-normalBK"   onclick="basketSelect(this)" >일반 구매( <span>0</span> )</p>
+                    <p id="sel-subscripBK" onclick="basketSelect(this)" >정기 구매( <span>0</span> )</p>
                 </div>
-                <div class="seletBox flexd">
-                    <div class="flexd">
-                        <input type="checkbox" class="allcheck" value="allcheck" onclick="allChecked(this)">
-                        <span>전체 선택</span>
+                <form name="frm1" action ="" method="" >
+                <!-- 일반 장바구니 영역 -->
+                <div id="basket-normal">
+
+                    <!-- 장바구니 항목 전체 선택 및 삭제-->
+                    <div class="seletBox flexd">
+                        <div class="flexd">
+                            <input type="checkbox" class="allcheck" onclick="allcheck(this)" >
+                            <span>전체 선택</span>
+                        </div>
+                        <input type="button" class="delet" value="선택 삭제">
                     </div>
-                    <input type="button" value="선택 삭제" class="delet" onclick="selectDelet()">
-                </div>
-                <div class="buy-normal">
+
+                    <!-- 상품이 담길곳 구매 상품리스트  -->
                     <ul class="buyList">
-                        <li class="buyList__no">
-                            <!-- 장바구니가 비었을시 쇼핑하러가기  문구 출력할-->
+
+                        <!-- 장바구니가 비었을시  나타나는 문구-->
+                        <li class="buyList-no">
                             <p>
                                 장바구니가 비어있어요~! 쇼핑하러 가볼까요? _(」∠ ､ﾝ､)_
                                 <i class="fa-solid fa-basket-shopping"></i>
                             </p>                            
                         </li>
+                       
+                        <!-- 장바구니DB 조회 , 장바구니 내역 -->
+                        <!-- ajax 내역 -->
+                        <li>
+                            <div class="buyList-item flexd">
+                                <!-- 상품 한 개 체크 버튼 -->
+                                <input type="checkbox" class="itemCheck" name="checks"  value="${item.productNum}"/>
+                                <div class="item__content">
+                                    <!-- 한 상품에 이미지와 이름 -->
+                                    <div class="item-img"><input type="hidden"name="itemImg" value="${item.mainImg}"/></div>
+                                    <p class="item-titel">
+                                            <input type="hidden" name="itemName" value ="${item.productName}" />
+                                            <span>다화주</span>
+                                    </p>
+                                </div>
+                                <div class="item__content">
+                                    <!-- 상품에 갯수 DB실시간으로 가져오기 /ajax -->
+                                    <div class="item__countBnt flexd">
+                                        <input type="button" name="plus" value="+" />
+                                        <span class="amount">2</span>
+                                        <input type="button"  name="minus" value="-" />
+                                        <!-- 상품 수량  저장 데이터 -->
+                                        <input type="hidden" name="price__og" value="20000">
+                                    </div>
+                                </div>
+                                <div class="item__content">
+                                    <!-- 상품 단가 : 수량*원가 (변동 값)  -->
+                                    <span class="item-price">0</span> 원
+                                    <!-- 상품의 원가  -->
+                                    <input type="hidden" name=""  />
+                                </div>
 
-                        <li>
-                            <div class="buyList__content flexd">
-                                <input type="checkbox" class="itemCheck"  value="a"/>
-                                <div class="content-item">
-                                    <!-- 상품내역  -->
-                                    <div class="item-img"></div>
-                                    <p class="item-titel">
-                                        <span>[계절 상품]</span>
-                                        막 주(酒)
-                                    </p>
-                                </div>
-                                <div class="content-item">
-                                    <!-- 수량 버튼 -->
-                                    <div class="item__countBnt flexd">
-                                        <input type="button" value="+" onclick="conutPuls(this)">
-                                        <span class="item-price__hidden">20000</span>
-                                        <span class="amount">1</span>
-                                        <input type="text" class="item-count__hidden" value="1">
-                                        <input type="button" value="-" onclick="conutMious(this)">
-                                    </div>
-                                </div>
-                                <div class="content-item">
-                                    <p> 
-                                        <span class="item-price">20000</span> 원
-                                    </p>
-                                    
-                                </div>
                             </div>
                         </li>
                         <li>
-                            <div class="buyList__content flexd">
-                                <input type="checkbox" class="itemCheck" value="b"/>
-                                <div class="content-item">
-                                    <!-- 상품내역  -->
-                                    <div class="item-img"></div>
+                            <div class="buyList-item flexd">
+                                <!-- 상품 한 개 체크 버튼 -->
+                                <input type="checkbox" class="itemCheck" name="checks"  value="${item.productNum}"/>
+                                <div class="item__content">
+                                    <!-- 한 상품에 이미지와 이름 -->
+                                    <div class="item-img"><input type="hidden"name="itemImg" value="${item.mainImg}"/></div>
                                     <p class="item-titel">
-                                        <span>[계절 상품]</span>
-                                        백란 주(酒)
+                                            <input type="hidden" name="itemName" value ="${item.productName}" />
+                                            <span>다화주</span>
                                     </p>
                                 </div>
-                                <div class="content-item">
-                                    <!-- 수량 버튼 -->
+                                <div class="item__content">
+                                    <!-- 상품에 갯수 DB실시간으로 가져오기 /ajax -->
                                     <div class="item__countBnt flexd">
-                                        <input type="button" value="+" onclick="conutPuls(this)"/>
-                                        <span class="item-price__hidden">20000</span>
-                                        <span class="amount">1</span>
-                                        <input type="button" value="-" onclick="conutMious(this)"/>
+                                        <input type="button" name="plus" value="+" />
+                                        <span class="amount">3</span>
+                                        <input type="button"  name="minus" value="-" />
+                                        <!-- 상품 수량  저장 데이터 -->
+                                        <input type="hidden" name="price__og" value="15000">
                                     </div>
                                 </div>
-                                <div class="content-item">
-                                    <p><span class="item-price">20000</span> 원</p>
+                                <div class="item__content">
+                                    <!-- 상품 단가 : 수량*원가 (변동 값)  -->
+                                    <span class="item-price">0</span> 원
+                                    <!-- 상품의 원가  -->
+                                    <input type="hidden" name=""  />
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="buy-subscrip">
-                    <ul class="buyList">
-                        <li class="buyList__no">
-                            <!-- 장바구니가 비었을시 쇼핑하러가기  문구 출력할-->
-                            <p>
-                                장바구니가 비어있어요~! 쇼핑하러 가볼까요? _(」∠ ､ﾝ､)_
-                                <i class="fa-solid fa-basket-shopping"></i>
-                            </p>                            
-                        </li>
 
-                        <li>
-                            <div class="buyList__content flexd">
-                                <input type="checkbox" class="itemCheck"  value="a"/>
-                                <div class="content-item">
-                                    <!-- 상품내역  -->
-                                    <div class="item-img"></div>
-                                    <p class="item-titel">
-                                        <span>[계절 상품]</span>
-                                        모란 차(茶)
-                                    </p>
-                                </div>
-                                <div class="content-item">
-                                    <!-- 수량 버튼 -->
-                                    <div class="item__countBnt flexd">
-                                        <input type="button" value="+" onclick="conutPuls(this)">
-                                        <span class="item-price__hidden">20000</span>
-                                        <span class="amount">1</span>
-                                        
-                                        <input type="button" value="-" onclick="conutMious(this)">
-                                    </div>
-                                </div>
-                                <div class="content-item">
-                                    <p> 
-                                        <span class="item-price">20000</span> 원
-                                    </p>
-                                    
-                                </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="buyList__content flexd">
-                                <input type="checkbox" class="itemCheck" value="b"/>
-                                <div class="content-item">
-                                    <!-- 상품내역  -->
-                                    <div class="item-img"></div>
-                                    <p class="item-titel">
-                                        <span>[계절 상품]</span>
-                                        청화 주(酒)
-                                    </p>
-                                </div>
-                                <div class="content-item">
-                                    <!-- 수량 버튼 -->
-                                    <div class="item__countBnt flexd">
-                                        <input type="button" value="+" onclick="conutPuls(this)"/>
-                                        <span class="item-price__hidden">20000</span>
-                                        <span class="amount">1</span>
-                                        <input type="button" value="-" onclick="conutMious(this)"/>
-                                    </div>
-                                    
-                                </div>
-                                <div class="content-item">
-                                    <p><span class="item-price">20000</span> 원</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            
-                <div class="decision__bnt">
-                    <!--버튼  2개 선택구매 전체 구매 -->
-                    <input type="button" class="" value="선택구매 하기" onclick="action2(1)">
-                    <input type="button" class="" value="전체구매 하기">
                     
+                        
+                    </ul>
                 </div>
-            </section>
+                </form>
 
+                <form name="frm2" action ="" method="" >
+                <!-- 정기 장바구니 영역 -->
+                <div id="basket-subscrip">
+                    
+                    <!-- 장바구니 항목 전체 선택 및 삭제-->
+                    <div class="seletBox flexd">
+                        <div class="flexd">
+                            <input type="checkbox" class="allcheck" onclick="allcheck(this)" >
+                            <span>전체 선택</span>
+                        </div>
+                        <input type="button" class="delet" value="선택 삭제">
+                    </div>
+
+                    <!-- 상품이 담길곳 구매 상품리스트  -->
+                    <ul class="buyList">
+
+                        <!-- 장바구니가 비었을시  나타나는 문구-->
+                        <li class="buyList-no">
+                            <p>
+                                장바구니가 비어있어요~! 쇼핑하러 가볼까요? _(」∠ ､ﾝ､)_
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </p>                            
+                        </li>
+                       
+                        <!-- 장바구니DB 조회 , 장바구니 내역 -->
+                        <!-- ajax 내역 -->
+                        <li>
+                            <div class="buyList-item flexd">
+                                <!-- 상품 한 개 체크 버튼 -->
+                                <input type="checkbox" class="itemCheck" name="checks"  value="${item.productNum}"/>
+                                <div class="item__content">
+                                    <!-- 한 상품에 이미지와 이름 -->
+                                    <div class="item-img"><input type="hidden"name="itemImg" value="${item.mainImg}"/></div>
+                                    <p class="item-titel">
+                                            <input type="hidden" name="itemName" value ="${item.productName}" />
+                                            <span>다화주</span>
+                                    </p>
+                                </div>
+                                <div class="item__content">
+                                    <!-- 상품에 갯수 DB실시간으로 가져오기 /ajax -->
+                                    <div class="item__countBnt flexd">
+                                        <input type="button" name="plus" value="+" >
+                                        <span class="amount">1</span>
+                                        <input type="button"  name="minus" value="-" >
+
+                                        <!-- 상품 수량  저장 데이터 -->
+                                        <input type="hidden" name="" value="">
+                                    </div>
+                                </div>
+                                <div class="item__content">
+                                    <!-- 상품 단가 : 수량*원가 (변동 값)  -->
+                                    <span class="item-price">0</span> 원
+                                    <!-- 상품의 원가  -->
+                                    <input type="hidden" name="" value="00" />
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </form>
+                
+                
+
+            <!-- 광고 영역 -->
             <section  class="adv">
                 <div class="adv__title flexd">
                     <div>
@@ -188,40 +201,48 @@
                     </div>
                 </div>
             </section>
-        </div>
-        <div class="payMent__contents2">
-            <div class="pay-PriceInfo">
-              <ul class="price__list">
-                  <li>
-                      <div class="price__item flexd">
-                          <p class="bolds">상품 금액</p>
-                          <p>+ <span class="totaPrice-item">40000</span> 원</p>
-                      </div>
-                  </li>
-                  <li>
-                      <div class="price__item flexd">
-                          <p class="bolds">할인 금액</p>
-                          <p class="textred">- <span>0</span> 원</p>
-                      </div>
-                  </li>
-                  <li>
-                      <div class="price__item flexd">
-                          <p class="bolds">배송비</p>
-                          <p>+ <span>0</span> 원</p>
-                      </div>
-                  </li>
-              </ul>
-              <div class="price__exected flexd">
-                  <p >예상 결제금액</p>
-                  <p><span class="antiPay-item">40000</span>원</p>
-              </div>
-              <button onclick="dataSet()"><span class="total-item__price">40000</span>주문하기</button>
-            </div>
-          </div>
-    </main>
-    
 
-    <script src="/js/basket.js"></script>
+
+        </div>
+        <!-- 결제 박스 -->
+        <div class="basket__Box2"">
+            <div class="pay-PriceInfo">
+                <ul>
+                    <li>
+                        <div class="price__item flexd">
+                            <p class="bolds">상품 금액</p>
+                            <p>+ <span class="price-prodcut" >0</span> 원</p>
+                            <input type="hidden" name=""  />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="price__item flexd">
+                            <!-- 할인 금액도 DB연결? -->
+                            <p class="bolds">할인 금액</p>
+                            <p> <span class="price-discount textred" >0</span> 원</p>
+                            <input type="hidden" name=""  />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="price__item flexd">
+                            <!--  배송비도 DB연결? -->
+                            <p class="bolds">배송비</p>
+                            <p>+ <span class="price-delivery ">0</span> 원</p>
+                            <input type="hidden" name=""  />
+                        </div>
+                    </li>
+                </ul>
+                <div class="price__exected flexd">
+                    <p >예상 결제금액</p>
+                    <p><span class="price-total">0</span>원</p>
+                    <input type="hidden" name=""  />
+                </div>
+                <button>결제 하기</button>
+              </div>
+        </div>
+    </main>
+
+    <script src="basket.js"></script>
     
 </body>
 </html>

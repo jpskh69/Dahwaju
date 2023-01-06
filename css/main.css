@@ -1,6 +1,9 @@
-@import "/css/header.css";
-@import "/css/payMent.css";
-@import "/css/basket.css";
+@charset "UTF-8";
+
+/* @import "header.css"; */
+@import "payMent.css";
+@import "basket.css";
+
 
 
 
@@ -12,4 +15,21 @@
 body{
     height: 1000vh;
 
+}
+
+ul {
+    list-style: none;
+}
+
+.flexd {
+    display: flex;
+}
+/*공통 폰트 스타일 ----------------------------------------------*/
+.bolds{
+    font-weight: bold;
+}
+
+.textred {
+    color: red;
+    font-weight: normal;
 }

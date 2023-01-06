@@ -1,18 +1,19 @@
+@charset "UTF-8";
+
+
 .basketMain{ 
     width: 1000px;
     box-sizing: border-box;
     margin: 20px auto;
     justify-content: center;
 }
-.buy-subscrip{
+#basket-subscrip{
     display: none;
 }
 /*---------------------------------------------------------------------------------------*/
-.basketMain ul{
-    list-style: none;
-}
 
-.basket-contents,
+
+.basket__contents,
  .adv{
     /*border: 1px solid black;*/
     padding: 10px;
@@ -20,13 +21,13 @@
     width: 700px;
 }
 
-.basket-contents>h1{
+.basket__contents>h1{
     padding: 20px 30px;
     margin: 30px 0px;
 
 }
 
-.basket-contents  .buyType__bnt p{
+.basket__contents  .basketType p{
     width: 50%;
     padding: 15px;
     text-align: center;
@@ -36,7 +37,7 @@
     cursor: pointer;
 
 }
-.basket-contents .buyType__bnt .clickedBk {
+.basket__contents .basketType .clickedBk {
     border-bottom: 2px solid black;
     color: black;
     font-weight: 600;
@@ -46,9 +47,10 @@
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 25px 10px;
     margin-top: 50px;
     font-size: 13px;
+    border-bottom: 2px  solid black;
     
 }
 .seletBox>div{
@@ -71,38 +73,39 @@
 
 }
 
-/* 장바구니 내용 부분---------------------------------------------------------------*/
+/* 장바구니 내역 ---------------------------------------------------------------*/
 
-.buy-normal, .buy-subscrip {
-    padding: 10px;
-    border-top: 2px  solid black;
-
-}
 .buyList li {
     margin-bottom: 5px;
 }
-/*==============================================================================*/
+
+
 /*장바구니에 아무것도 담겨져있지 않을경우 */
-.buyList__no {
+
+.buyList-no{
     display: block; /* display: block; */
     height: 100px;
     line-height: 100px;
     text-align: center;
 }
-.buyList__no>p {
+.buyList-no>p {
     font-size: 15px;
     color:  rgba(128, 128, 128, 0.7);
     font-weight: 600;
 }
-.buyList__no>p i {
+.buyList-no>p i {
     padding-left: 10px;
     font-size: 24px;
     color: rgba(128, 128, 128, 0.7);
 }
+
+
+
+
 /*==============================================================================*/
 
 /* 한 개에 대한 CSS */
-.buyList__content {
+.buyList-item {
     width: 100%;
     box-sizing: content-box;
     justify-content: center;
@@ -111,15 +114,15 @@
     border-bottom: 1px dashed rgba(0,0,0,0.2);
 
 }
-.content-item {
+.item__content {
     width: 33%;
     display: flex;
     align-items: center;
 }
-.content-item:nth-of-type(2){
+.item__content:nth-of-type(2){
     justify-content: center;
 }
-.content-item:last-child{
+.item__content:last-child{
     justify-content: end;
     padding-right: 30px;
     box-sizing: border-box ;
@@ -143,16 +146,14 @@
     padding-left: 15px;
 }
 
-    /*한 상품에대한 수량 버튼*/
+
+
+/*한 상품에대한 수량 버튼---------------------------------------------------------------*/
 .item__countBnt {
     width: 90px;
     height: 30px;
     justify-content: space-between;
     align-items: center;
-       /*  css   */
-
- 
-    
 }
 
 .item__countBnt input {
@@ -171,7 +172,7 @@
     border-bottom: 4px solid rgba(0,0,0,0.21);
     border-radius: 4px 0px 0px 4px;
 }
-.item__countBnt input:last-child{
+.item__countBnt input[name="minus"]{
     border: 1px solid rgba(0,0,0,0.1);
     border-left: none;
     border-bottom: 4px solid rgba(0,0,0,0.21);
@@ -198,10 +199,8 @@
     border-bottom: 4px solid rgba(0,0,0,0.21);
 
 }
-.item-price__hidden,
-.item-count__hidden {
-    display: none;
-}
+
+
 
 /*구매 버튼--------------------------------------------------------------------*/
 .decision__bnt{
@@ -225,12 +224,9 @@
     background-color: #fec1c1;
 
 }
-.decision__bnt input:active  {
+.decision__bnt input:active,
+.decision__bnt input:last-child:active  {
     background-color: #ff9898;
-}
-.decision__bnt input:last-child:active {
-    background-color: #ff9898;
-
 }
 
 
@@ -238,6 +234,8 @@
 .adv{
     margin-top: 100px;
 }
+
+
 .adv__title {
     padding: 20px 30px;
     width: 100%;
@@ -246,17 +244,18 @@
     box-sizing: border-box;
 
 }
+
 .adv__title > div {
     display: flex;
     align-items: center;
 }
+
 .adv__title > div p{
     margin-left: 50px;
     font-size: 14px;
 }
 .adv__content{
     padding: 20px 10px;
-
     border-top: 2px solid black;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     align-items: center;
@@ -295,12 +294,15 @@
     margin-left: 5px;
 
 }
+/*사이드 -------------------------------------------------------------------*/
 
 #clock {
     font-size: 24px;
     font-weight: bold;
 }
-.basketMain .pay-PriceInfo {
+.basket__Box2 .pay-PriceInfo {
+
     top: 180px;
     margin-bottom: 30px;
 }
+
